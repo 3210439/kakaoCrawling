@@ -22,21 +22,21 @@ def parsing_item(item):
     print("-"*50)
 
 
-# Chrome WebDriver를 이용해 Chrome을 실행합니다.
+#Chrome WebDriver를 이용해 Chrome을 실행합니다.
 driver = webdriver.Chrome(executable_path='C:/Users/kimde/downloads/chromedriver_win32/chromedriver.exe')
 
-# 카카오 맵으로 이동하기
+#카카오 맵으로 이동하기
 driver.get("https://map.kakao.com/")
 time.sleep(1)
-# 검색창 가져오기
+#검색창 가져오기
 search_box = driver.find_element_by_css_selector('#search\.keyword\.query')
-# 검색창에 검색하기
+#검색창에 검색하기
 search_box.send_keys("광안대교")
 time.sleep(1)
-# 검색버튼 누르기
+#검색버튼 누르기
 search_box.send_keys(Keys.ENTER)
 time.sleep(1)
-# 크롬에 키워드로 검색한 html 소스 받아오기
+#크롬에 키워드로 검색한 html 소스 받아오기
 html = driver.page_source
 
 soup = BeautifulSoup(html, "html.parser")
