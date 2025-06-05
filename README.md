@@ -1,6 +1,16 @@
 # kakaoCrawling
-카카오 맵에 특정 키워드로 검색을 한후 나타나는 리스트의 정보를 추출하여 타이틀, 주소, url을 나타내는 코드입니다.
 
 
-# 결과
-![image](https://user-images.githubusercontent.com/47379176/159160036-dc2069c4-8e71-48ba-816a-9f4d0eb33f59.png)
+```
+# 1. Homebrew 설치 (이미 설치되어 있다면 생략)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 2. Python3 설치 (필요한 경우)
+brew install python3
+
+# 3. Python 패키지 설치
+pip3 install selenium webdriver-manager beautifulsoup4
+
+# 4. Google Chrome 설치
+brew install --cask google-chrome
+```
