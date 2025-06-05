@@ -153,19 +153,13 @@ def scrape_crossfit(location, driver, writer, seen_places):
     
     return seen_places
 
-# Administrative divisions (structured to reduce overlap)
-seoul_dongs = [
-    '강남구 역삼동', '강남구 삼성동', '강남구 청담동', '강남구 신사동', '강남구 논현동', 
-    '강남구 압구정동', '강남구 대치동', '서초구 서초동', '서초구 반포동', '서초구 잠원동', 
-    '서초구 방배동', '송파구 잠실동', '송파구 방이동', '송파구 석촌동', '송파구 가락동', 
-    '마포구 홍대동', '마포구 서교동', '마포구 연남동', '영등포구 여의도동', 
-    '영등포구 영등포동', '영등포구 당산동'
-]
 
 seoul_districts = [
     '강동구', '강북구', '강서구', '관악구', '광진구', '구로구', '금천구', '노원구', '도봉구',
     '동대문구', '동작구', '서대문구', '성동구', '성북구', '양천구', '용산구', '은평구', '종로구', 
-    '중구', '중랑구'
+    '중구', '중랑구','역삼동', '삼성동', '청담동', '신사동', '논현동', '압구정동', '대치동',
+    '서초동', '반포동', '잠원동', '방배동', '잠실동', '방이동', '석촌동', '가락동',
+    '홍대동', '서교동', '연남동','여의도동', '영등포동', '당산동'
 ]
 
 gyeonggi_cities = [
@@ -203,10 +197,6 @@ with open(output_file, 'a', newline='', encoding='utf-8-sig') as csvfile:
     
     try:
         seen_places = set()  # Track unique places by place_id
-        
-        # Scrape for Seoul dongs
-        for dong in seoul_dongs:
-            seen_places = scrape_crossfit(dong, driver, writer, seen_places)
         
         # Scrape for Seoul districts (excluding dongs to avoid overlap)
         for district in seoul_districts:
